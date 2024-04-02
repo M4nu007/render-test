@@ -137,7 +137,7 @@ app.put('/api/persons/:id', (request, response, next) => {
 
   const person = {
     name: body.name,
-    number: Number(body.number),
+    number: body.number,
     important: Boolean(body.important) || false
   }
 
