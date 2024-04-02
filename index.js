@@ -105,7 +105,7 @@ app.get('/info', (request, response, next) => {
 
 app.post('/api/persons', (request, response, next) => {
   const body = request.body
-  if (!body.name) {
+  if (!body.name || !body.number) {
     return response.status(400).json({
       error: 'content missing'
     })
@@ -119,7 +119,7 @@ app.post('/api/persons', (request, response, next) => {
   // }
   const person = new Person({
     name: body.name,
-    number: Number(body.number),
+    number: body.number,
     important: Boolean(body.important) || false
   })
 
